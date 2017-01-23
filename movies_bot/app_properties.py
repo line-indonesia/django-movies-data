@@ -1,0 +1,2 @@
+channel_secret = 'aa0cde1e172f03a90af48e6841c98a7d'
+channel_access_token = 'T4vobOV+czFr/Er5fZC8TYxml28e+tDUXlJbs0YpqUyMac/GlUDvx8PfJu0ZwBG0yx3K71UZMD05wLUdejZX4vQbcYGqCuFaBYuYOGpMqRue7fV9NU/akKPQGaXQ8LNqscqwxZAJ2jT0smFrz5agUwdB04t89/1O/w1cDnyilFU='

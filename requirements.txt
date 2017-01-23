@@ -1,0 +1,6 @@
+Django==1.10.5
+djangorestframework==3.5.3
+future==0.16.0
+gunicorn==19.6.0
+line-bot-sdk==1.1.0
+requests==2.12.5
