@@ -81,7 +81,7 @@ def getMovieData(text, reply_token, target_id):
     if firstIndex == lastIndex or firstIndex == -1 or lastIndex == -1:
         replyToUser(reply_token, 'Unknown keyword')
         return
-    title = text[firstIndex:lastIndex]
+    title = text[firstIndex+1:lastIndex]
     print('Title: ' + title)
     URI = 'http://www.omdbapi.com/?t=' + title + '&r=json'
     
@@ -124,7 +124,7 @@ def replyToUser(reply_token, text_message):
     try:
         line_bot_api.reply_message(reply_token, TextSendMessage(text=text_message))
     except LineBotApiError as e:
-        print('Exception is raised')
+        print('replyToUser - Exception is raised ', str(e))
 
 def pushImage(target_id, poster_url):
     line_bot_api = LineBotApi(channel_access_token)
@@ -133,7 +133,7 @@ def pushImage(target_id, poster_url):
         line_bot_api.push_message(target_id, ImageSendMessage(original_content_url=poster_url,
                                                               preview_image_url=poster_url))
     except LineBotApiError as e:
-        print('Exception is raised')
+        print('pushImage - Exception is raised ', str(e))
 
 def carousleForUser(poster_url, target_id, title):
     carousel_template = CarouselTemplate(columns=[
