@@ -3,6 +3,7 @@ import hashlib
 import base64
 import json
 import requests
+import os
 from django.shortcuts import render
 from django.http import HttpResponse
 from rest_framework.decorators import api_view
@@ -11,7 +12,11 @@ from linebot import LineBotApi
 from linebot.models import (TextSendMessage, ImageSendMessage, CarouselTemplate, CarouselColumn, TemplateSendMessage, MessageTemplateAction)
 from linebot.exceptions import LineBotApiError
 
-from app_properties import channel_secret, channel_access_token
+try:
+    from app_properties import channel_secret, channel_access_token
+except ImportError:
+    channel_secret = os.environ['LINE_CHANNEL_SECRET']
+    channel_access_token = os.environ['LINE_CHANNEL_ACCESS_TOKEN']
 
 # Create your views here.
 @api_view(['POST'])
