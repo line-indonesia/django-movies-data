@@ -101,7 +101,7 @@ def getMovieData(text, reply_token, target_id):
         msgToUser = "Released: " + jResponse['Released']
     elif 'poster' in text:
         pushImage(target_id, jResponse['Poster'])
-        msgToUser = 'Poster for user'
+        return
     elif 'director' in text:
         msgToUser = "Director: " + jResponse['Director']
     elif 'writer' in text:
@@ -112,14 +112,13 @@ def getMovieData(text, reply_token, target_id):
         msgToUser = "Actors: " + jResponse['Actors']
     elif 'display' in text:
         carousleForUser(jResponse['Poster'], target_id, jResponse['Title'])
-        msgToUser = 'Carousel Template for user'
-
-    print("Message to user: " + msgToUser)
-
-    if len(msgToUser) <= 11 :
-        replyToUser(reply_token, "Request Timeout");
+        return
     else:
-        replyToUser(reply_token, msgToUser);
+        replyToUser(reply_token, "Unknown keyword")
+        return
+
+    replyToUser(reply_token, msgToUser);
+
 
 def replyToUser(reply_token, text_message):
     line_bot_api = LineBotApi(channel_access_token)
