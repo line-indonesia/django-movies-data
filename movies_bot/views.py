@@ -80,6 +80,7 @@ def getMovieData(text, reply_token, target_id):
     lastIndex = text.rfind('"', 0, len(text))
     if firstIndex == lastIndex or firstIndex == -1 or lastIndex == -1:
         replyToUser(reply_token, 'Unknown keyword')
+        return
     title = text[firstIndex:lastIndex]
     print('Title: ' + title)
     URI = 'http://www.omdbapi.com/?t=' + title + '&r=json'
