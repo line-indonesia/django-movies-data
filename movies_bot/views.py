@@ -92,7 +92,7 @@ def getMovieData(text, reply_token, target_id):
     print("OMDb responses: " + json.dumps(jResponse))
 
     msgToUser = ' '
-    if 'title' in text:
+    if 'text' in text:
         msgToUser = "Plot: " + jResponse['Plot'] + "\nReleased: " + jResponse['Released'] + "\nDirector: " + jResponse['Director'] + "\nWriter: " + jResponse['Writer'] + "\nAwards: " + jResponse['Awards'] + "\nActors: " + jResponse['Actors']
         pushImage(target_id, jResponse['Poster'])
     elif 'plot' in text:
@@ -110,7 +110,7 @@ def getMovieData(text, reply_token, target_id):
         msgToUser = "Awards: " + jResponse['Awards']
     elif 'actors' in text:
         msgToUser = "Actors: " + jResponse['Actors']
-    elif 'carousel' in text:
+    elif 'display' in text:
         carousleForUser(jResponse['Poster'], target_id, jResponse['Title'])
         msgToUser = 'Carousel Template for user'
 
