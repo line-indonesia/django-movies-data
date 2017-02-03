@@ -25,7 +25,7 @@ SECRET_KEY = 'mj*_0+%3is)$7^9x*o4*dxk9k4whi6t8-_lz#u%jf!6o_p_+lh'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['sheltered-cove-44844.herokuapp.com']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
