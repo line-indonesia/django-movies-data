@@ -24,6 +24,8 @@ def callback(request):
     # Get request header and request body
     aXLineSignature = request.META.get('HTTP_X_LINE_SIGNATURE')
     print('Signature: ' + aXLineSignature)
+    print('channel_secret: ' + channel_secret)
+    print('channel_access_token: ' + channel_access_token)
     body = request.body
     print('Payload: ' + body)
     
