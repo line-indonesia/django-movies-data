@@ -72,16 +72,17 @@ def callback(request):
         botLeave(mTargetId, mSource)
         return Response("User want to exit")
 
-    getMovieData(mText, mReplyToken, mTargetId)
+    getMovieData(mSource, mText, mReplyToken, mTargetId)
 
     return Response ("Movies_Bot")
 
 
-def getMovieData(text, reply_token, target_id):
+def getMovieData(source, text, reply_token, target_id):
     firstIndex = text.find('"', 0, len(text))
     lastIndex = text.rfind('"', 0, len(text))
     if firstIndex == lastIndex or firstIndex == -1 or lastIndex == -1:
-        replyToUser(reply_token, 'Unknown keyword')
+        if source == 'user':
+            replyToUser(reply_token, "Unknown keyword")
         return
     title = text[firstIndex+1:lastIndex]
     print('Title: ' + title)
@@ -114,7 +115,8 @@ def getMovieData(text, reply_token, target_id):
         carousleForUser(jResponse['Poster'], target_id, jResponse['Title'])
         return
     else:
-        replyToUser(reply_token, "Unknown keyword")
+        if source == 'user':
+            replyToUser(reply_token, "Unknown keyword")
         return
 
     replyToUser(reply_token, msgToUser);
