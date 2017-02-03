@@ -10,7 +10,7 @@ This project is using django framework, line-bot python sdk and deployed with He
 	2. Choose your channel
 	3. Edit "Basic Information"
 
-* Add `app_properties.py` file in *py_movies_bot* directory, and fill it with your channel secret and channel access token, like the following:
+* Add `app_properties.py` file in *movies_bot* directory, and fill it with your channel secret and channel access token, like the following:
 
 	```python
 channel_secret = <your_channel_secret>
